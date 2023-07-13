@@ -1,0 +1,24 @@
+name = "first_try"
+stan_file = "yield_growth_rate.stan"
+prepared_data_dir = "hooman"
+stan_input_function = "get_stan_input"
+modes = ["posterior"]
+
+[dims]
+mu = ["reactor"]
+
+[stanc_options]
+warn-pedantic = true
+
+[sample_kwargs]
+save_warmup = false
+iter_warmup = 2000
+iter_sampling = 1000
+show_console = true
+chains = 4
+#max_treedepth = 12
+adapt_delta = 0.9
+
+[mode_options.prior]
+iter_warmup = 1000
+iter_sampling = 1000
